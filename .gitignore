@@ -2,3 +2,4 @@ build
 dist
 venv
 .env
+.DS_Store
