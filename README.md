@@ -10,6 +10,44 @@ A Python package to interact with the **SpringerNature API** for fetching metada
 
 ## 🚀 Installation
 
+### Install Python
+
+Ensure you have Python installed (version 3.7+ recommended).
+
+Windows: Download from [python.org](https://www.python.org/downloads/) and install.
+
+macOS: Install via Homebrew:
+
+```bash
+brew install python
+```
+
+Linux: Install using package manager (e.g., apt for Debian/Ubuntu):
+
+```bash
+sudo apt update && sudo apt install python3 python3-venv python3-pip
+```
+
+### Create a Virtual Environment (Recommended)
+
+It's best to install the package inside a virtual environment to avoid conflicts.
+
+```bash
+# Create a virtual environment (venv)
+python -m venv venv  
+
+# Activate the virtual environment  
+# Windows:
+venv\Scripts\activate  
+# macOS/Linux:
+source venv/bin/activate  
+
+# Upgrade pip
+pip install --upgrade pip  
+```
+
+### Install the Package
+
 ```bash
 pip install springernature_api
 ```
