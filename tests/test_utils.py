@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import os
-from springernature_api.utils import results_to_dataframe
+from springernature_api_client.utils import results_to_dataframe
 
 @pytest.fixture
 def sample_results():

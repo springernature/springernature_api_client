@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.tdm import TDMAPI
+from springernature_api_client.tdm import TDMAPI
 
 @pytest.fixture
 def tdm_client():

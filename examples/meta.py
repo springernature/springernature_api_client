@@ -1,5 +1,5 @@
-import springernature_api.meta as meta
-from springernature_api.utils import results_to_dataframe
+import springernature_api_client.meta as meta
+from springernature_api_client.utils import results_to_dataframe
 
 meta_client = meta.MetaAPI(api_key="your_api_key")
 

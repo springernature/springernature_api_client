@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.openaccess import OpenAccessAPI
+from springernature_api_client.openaccess import OpenAccessAPI
 
 @pytest.fixture
 def openaccess_client():

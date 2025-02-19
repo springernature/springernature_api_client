@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.api_client import SpringerNatureAPI
+from springernature_api_client.api_client import SpringerNatureAPI
 
 @pytest.fixture
 def api_client():

@@ -1,5 +1,5 @@
-import springernature_api.openaccess as openaccess
-from springernature_api.utils import results_to_dataframe
+import springernature_api_client.openaccess as openaccess
+from springernature_api_client.utils import results_to_dataframe
 
 openaccess_client = openaccess.OpenAccessAPI(api_key="your_api_key")
 

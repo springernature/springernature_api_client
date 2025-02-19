@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.exceptions import (
+from springernature_api_client.exceptions import (
     APIError,
     InvalidAPIKeyError,
     RateLimitExceededError,

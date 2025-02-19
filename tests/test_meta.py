@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.meta import MetaAPI
+from springernature_api_client.meta import MetaAPI
 
 @pytest.fixture
 def meta_client():

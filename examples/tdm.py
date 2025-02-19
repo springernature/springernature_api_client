@@ -1,5 +1,5 @@
-import springernature_api.tdm as tdm
-from springernature_api.utils import results_to_dataframe
+import springernature_api_client.tdm as tdm
+from springernature_api_client.utils import results_to_dataframe
 
 tdm_client = tdm.TDMAPI(api_key="your_api_key")
 

@@ -1,5 +1,5 @@
 import pytest
-from springernature_api.metadata import MetadataAPI
+from springernature_api_client.metadata import MetadataAPI
 
 @pytest.fixture
 def metadata_client():
