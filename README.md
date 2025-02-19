@@ -80,7 +80,7 @@ from springernature_api_client.utils import results_to_dataframe
 metadata_client = metadata.MetadataAPI(api_key="your_api_key")
 
 # Fetch results (pagination enabled, stops at `s=200`)
-response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 
 # Convert API response to DataFrame & export to Excel
 df = results_to_dataframe(response, export_to_excel=True, filename="articles.xlsx")
@@ -97,7 +97,7 @@ import springernature_api_client.meta as meta
 from springernature_api_client.utils import results_to_dataframe
 
 meta_client = meta.MetaAPI(api_key="your_api_key")
-response = meta_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = meta_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 df = results_to_dataframe(response, export_to_excel=True)
 print(df.head())
 ```
@@ -109,7 +109,7 @@ import springernature_api_client.metadata as metadata
 from springernature_api_client.utils import results_to_dataframe
 
 metadata_client = metadata.MetadataAPI(api_key="your_api_key")
-response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 df = results_to_dataframe(response, export_to_excel=True)
 print(df.head())
 ```
@@ -121,7 +121,7 @@ import springernature_api_client.openaccess as openaccess
 from springernature_api_client.utils import results_to_dataframe
 
 openaccess_client = openaccess.OpenAccessAPI(api_key="your_api_key")
-response = openaccess_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = openaccess_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 df = results_to_dataframe(response, export_to_excel=True)
 print(df.head())
 ```
@@ -133,7 +133,7 @@ import springernature_api_client.tdm as tdm
 from springernature_api_client.utils import results_to_dataframe
 
 tdm_client = tdm.TDMAPI(api_key="your_api_key")
-response = tdm_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = tdm_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 df = results_to_dataframe(response, export_to_excel=True)
 print(df.head())
 ```
@@ -143,7 +143,7 @@ print(df.head())
 If fetch_all=True, the API will automatically paginate through results.
 
 ```bash
-response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=True, is_premium=True)
+response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 ```
 
 ## 📤 Exporting to Excel
