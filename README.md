@@ -1,4 +1,4 @@
-# SpringerNature API Wrapper
+# SpringerNature API Client
 
 [![PyPI Version](https://img.shields.io/pypi/v/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
 [![Python Version](https://img.shields.io/pypi/pyversions/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
