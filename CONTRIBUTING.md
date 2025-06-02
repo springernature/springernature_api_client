@@ -53,11 +53,11 @@ By participating in this project, you agree to uphold our Code of Conduct. Pleas
 
 ### Commit Messages
 Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
-- feat: for new features
-- fix: for bug fixes
-- docs: for documentation changes
-- test: for adding or modifying tests
-- refactor: for code refactoring
+- **feat**: for new features
+- **fix**: for bug fixes
+- **docs**: for documentation changes
+- **test**: for adding or modifying tests
+- **refactor**: for code refactoring
 
 ### Reporting Bugs
 Report bugs by opening an issue using the bug report template. 
