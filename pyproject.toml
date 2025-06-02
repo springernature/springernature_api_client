@@ -11,7 +11,7 @@ authors = [
 description = "Springer Nature API Client"
 readme = "README.md"
 dependencies = [
-    "requests", "python-dotenv", "pandas", "openpyxl"
+    "requests", "python-dotenv", "pandas", "openpyxl", "package-name (>=0.1,<0.2)"
 ]
 keywords = ["API", "Springer Nature", "client", "requests"]
 requires-python = ">=3.7"
