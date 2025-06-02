@@ -1,10 +1,10 @@
-# SpringerNature API Client
+# Springer Nature API Client
 
 [![PyPI Version](https://img.shields.io/pypi/v/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
 [![Python Version](https://img.shields.io/pypi/pyversions/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
 [![License](https://img.shields.io/pypi/l/springernature_api_client)](LICENSE)
 
-A Python package to interact with the **SpringerNature API** for fetching metadata, open access articles, and text & data mining (TDM) content.
+A Python package to interact with the **Springer Nature API** for fetching metadata, open access articles, and text & data mining (TDM) content.
 
 ---
 
@@ -54,7 +54,7 @@ pip install springernature_api_client
 
 ## 🔑 Setup
 
-Before using the package, obtain an API key from SpringerNature Developer Portal.
+Before using the package, obtain an API key from Springer Nature Developer Portal.
 
 Set the API key in your environment:
 
@@ -163,7 +163,7 @@ Try setting the API key as an environment variable.
 
 ### 2️⃣ Rate Limit Exceeded (Error 429)
 
-SpringerNature API limits requests per minute.
+Springer Nature API limits requests per minute.
 If you hit the limit, wait or request a higher quota.
 
 ### 3️⃣ Connection Timeout
