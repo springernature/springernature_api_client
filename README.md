@@ -12,7 +12,7 @@ A Python package to interact with the **Springer Nature API** for fetching metad
 
 ### Install Python
 
-Ensure you have Python installed (version 3.7+ recommended).
+Ensure you have Python installed (version 3.9+ recommended).
 
 Windows: Download from [python.org](https://www.python.org/downloads/) and install.
 
@@ -28,43 +28,43 @@ Linux: Install using package manager (e.g., apt for Debian/Ubuntu):
 sudo apt update && sudo apt install python3 python3-venv python3-pip
 ```
 
-### Create a Virtual Environment (Recommended)
-
-It's best to install the package inside a virtual environment to avoid conflicts.
-
-```bash
-# Create a virtual environment (venv)
-python -m venv venv
-
-# Activate the virtual environment
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
-
-# Upgrade pip
-pip install --upgrade pip
-```
-
-### Install the Package
-
+### For Users
+To install the package from PyPI(If you just want to use the package in your project):
 ```bash
 pip install springernature_api_client
 ```
 
-## 🔑 Setup
+### For Developers
+If you're planning to contribute to the project:
+1. Install Poetry (dependency management tool)
+This project uses Poetry for dependency management. Install Poetry if you haven't already:
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+2. Clone the repository and install dependencies
+```bash
+   git clone https://github.com/springernature/springernature_api_client.git
+   cd springernature_api_client
+   poetry install --with dev
+```
+3. Activate the virtual environment using Poetry:
+```bash
+poetry env use python
+poetry shell
+# or 
+poetry env activate
+```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the development workflow.
 
+## 🔑 Setup
 Before using the package, obtain an API key from Springer Nature Developer Portal.
 
 Set the API key in your environment:
-
-```bash
+```python
 export SPRINGER_API_KEY="your_api_key_here"
 ```
-
 Or pass it directly in Python:
-
-```bash
+```python
 api_key = "your_api_key_here"
 ```
 
@@ -173,8 +173,8 @@ Try increasing the timeout value in the request.
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 👨‍💻 Contributing
 
-We welcome contributions! Open an issue or submit a pull request. 🚀
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details. 🚀

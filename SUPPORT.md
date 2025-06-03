@@ -5,7 +5,7 @@ This document outlines the various support resources available for users of the 
 ## Official Support Channels
 
 - **Email Support**: Contact us at supportapi@springernature.com for direct assistance
-- **GitHub Issues**: For bugs and feature requests, please [open an issue](https://github.com/your-username/springernature_api_client/issues/new/choose)
+- **GitHub Issues**: For bugs and feature requests, please [open an issue](https://github.com/springernature/springernature_api_client/issues/new/choose)
 
 ## Documentation
 
@@ -18,7 +18,7 @@ This document outlines the various support resources available for users of the 
 
 If you encounter issues installing the package:
 
-1. Ensure you're using Python 3.7 or higher
+1. Ensure you're using Python 3.9 or higher
 2. Try upgrading pip: `pip install --upgrade pip`
 3. If using Poetry: `poetry install`
 
@@ -54,7 +54,6 @@ For security vulnerabilities, please refer to our [SECURITY.md](SECURITY.md) doc
 ## Community Support
 
 - **GitHub Discussions**: Engage with the community and maintainers
-- **Stack Overflow**: Tag questions with `springernature-api`
 
 ## Support Policy
 

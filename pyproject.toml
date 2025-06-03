@@ -1,25 +1,28 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[project]
+[tool.poetry]
 name = "springernature_api_client"
 version = "0.0.2"
-authors = [
-    { name = "Springer Nature", email = "supportapi@springernature.com" },
-]
 description = "Springer Nature API Client"
+authors = ["Springer Nature <supportapi@springernature.com>"]
 readme = "README.md"
-dependencies = [
-    "requests", "python-dotenv", "pandas", "openpyxl", "package-name (>=0.1,<0.2)"
-]
 keywords = ["API", "Springer Nature", "client", "requests"]
-requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
-[project.optional-dependencies]
-dev = ["pytest"]
+[tool.poetry.dependencies]
+python = ">=3.9"
+requests = "^2.28.0"
+python-dotenv = "^1.0.0"
+pandas = "^2.0.0"
+openpyxl = "^3.1.0"
+package-name = ">=0.1,<0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.0"
+pytest-mock = "^3.14.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

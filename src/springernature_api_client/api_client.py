@@ -15,7 +15,7 @@ class SpringerNatureAPI:
         self.max_retries = max_retries  # Maximum number of retries
         self.backoff_factor = backoff_factor  # Factor to control wait time scaling
 
-        if not self.api_key:
+        if not api_key:
             raise InvalidAPIKeyError("No API key provided.")
 
     def _make_request(self, endpoint: str, fetch_all: bool = False, is_tdm: bool = False, **params):

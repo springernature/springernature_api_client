@@ -10,14 +10,14 @@ By participating in this project, you agree to uphold our Code of Conduct. Pleas
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- [Poetry](https://python-poetry.org/docs/#installation) for dependency management
+- Python 3.9 or higher
+- [Poetry](https://python-poetry.org/docs/#installation) 2.x for dependency management
 
 ### Development Environment Setup
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/springernature_api_client.git
+   git clone https://github.com/springernature/springernature_api_client.git
    cd springernature_api_client
    ```
 2. Install dependencies with Poetry
@@ -26,7 +26,8 @@ By participating in this project, you agree to uphold our Code of Conduct. Pleas
     ```
 3. Activate the virtual environment
     ```bash
-   poetry shell
+   poetry env use python
+   poetry env activate
     ```
 ## Development Workflow
 
@@ -37,13 +38,34 @@ By participating in this project, you agree to uphold our Code of Conduct. Pleas
 - Add type hints where appropriate
 
 ### Testing
-- Write tests for all new features using pytest
-- Run tests before submitting any changes
+- Required testing packages (`pytest` and `pytest-mock`) are included in the dev dependencies
+- Always run tests using Poetry before submitting any changes
     ```bash 
-    pytest
+    poetry run pytest
     ```
+- If you encounter issues with test fixtures, ensure you're using Poetry to run the tests, as it manages the virtual environment with all necessary dependencies
 - Maintain or improve test coverage
 
+### Troubleshooting
+
+#### Missing pytest fixtures
+
+If you encounter errors about missing test fixtures (like `fixture 'mocker' not found`), try these steps:
+
+1. Ensure you're using Poetry to run tests:
+   ```bash
+   poetry run pytest
+   ```
+2. If the issue persists, update the test dependencies:
+   ```bash
+   poetry add pytest-mock --group dev
+   poetry add pytest@latest pytest-mock@latest --group dev
+   ```
+3. You may need to reactivate your virtual environment:
+   ```bash
+   poetry env deactivate
+   poetry env activate
+   ```
 ### Pull Request Process
 1. Fork the repository
 2. Create a feature branch (```git checkout -b feature/amazing-feature```)
