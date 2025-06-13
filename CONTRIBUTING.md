@@ -4,7 +4,7 @@ Thank you for considering contributing to the Springer Nature API Client. This d
 
 ## Code of Conduct
 
-By participating in this project, you agree to uphold our Code of Conduct. Please report unacceptable behavior to supportapi@springernature.com.
+By participating in this project, you agree to uphold our [Code of Conduct](CODE_OF_CONDUCT.md). Please report unacceptable behavior to supportapi@springernature.com.
 
 ## Getting Started
 
