@@ -6,8 +6,8 @@ We provide security updates for the following versions of the Springer Nature AP
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.0.2   | :white_check_mark: |
-| < 0.0.2 | :x:                |
+| 0.0.3   | :white_check_mark: |
+| < 0.0.3 | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -15,10 +15,10 @@ We take the security of the Springer Nature API Client seriously. If you believe
 
 1. **Do not disclose the vulnerability publicly**
 2. Email us at supportapi@springernature.com with:
-    - A description of the vulnerability
-    - Steps to reproduce the issue
-    - Potential impact of the vulnerability
-    - Any suggested mitigation or fix (if available)
+   - A description of the vulnerability
+   - Steps to reproduce the issue
+   - Potential impact of the vulnerability
+   - Any suggested mitigation or fix (if available)
 
 ## Response Timeline
 
