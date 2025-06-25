@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "springernature_api_client"
 version = "0.0.3"
+license = "MIT"
 description = "Springer Nature API Client"
 authors = ["Springer Nature <supportapi@springernature.com>"]
 readme = "README.md"
@@ -10,6 +11,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+include = ["LICENSE", "CONTRIBUTING.md"]
 
 [tool.poetry.dependencies]
 python = ">=3.9"
