@@ -2,7 +2,7 @@
 
 [![PyPI Version](https://img.shields.io/pypi/v/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
 [![Python Version](https://img.shields.io/pypi/pyversions/springernature_api_client)](https://pypi.org/project/springernature-api-client/)
-[![License](https://img.shields.io/pypi/l/springernature_api_client)](LICENSE)
+[![License](https://img.shields.io/pypi/l/springernature_api_client)](https://github.com/springernature/springernature_api_client/blob/main/LICENSE)
 
 A Python package to interact with the **Springer Nature API** for fetching metadata, open access articles, and text & data mining (TDM) content.
 
@@ -173,8 +173,8 @@ Try increasing the timeout value in the request.
 
 ## 📄 License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. See [LICENSE](https://github.com/springernature/springernature_api_client/blob/main/LICENSE) for details.
 
 ## 👨‍💻 Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details. 🚀
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/springernature/springernature_api_client/blob/main/CONTRIBUTING.md) for details. 🚀
