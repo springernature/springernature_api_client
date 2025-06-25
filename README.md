@@ -54,7 +54,7 @@ poetry shell
 # or 
 poetry env activate
 ```
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the development workflow.
+See [CONTRIBUTING.md](https://github.com/springernature/springernature_api_client/blob/main/CONTRIBUTING.md) for more details on the development workflow.
 
 ## 🔑 Setup
 Before using the package, obtain an API key from Springer Nature Developer Portal.
