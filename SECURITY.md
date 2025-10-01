@@ -6,8 +6,8 @@ We provide security updates for the following versions of the Springer Nature AP
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.0.6   | :white_check_mark: |
-| < 0.0.6 | :x:                |
+| 0.0.7   | :white_check_mark: |
+| < 0.0.7 | :x:                |
 
 ## Reporting a Vulnerability
 
