@@ -1,9 +1,13 @@
 import requests
 import time
 import random
+import urllib3
 from .config import API_KEY
 from .exceptions import APIRequestError, RateLimitExceededError, InvalidAPIKeyError
 from .logging_config import logger
+
+# Disable SSL warnings for TDM requests
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class SpringerNatureAPI:
     BASE_URL = "https://api.springernature.com/"
@@ -26,11 +30,14 @@ class SpringerNatureAPI:
         all_results = []
 
         retries = 0  # Track retry attempts
+        
+        # Disable SSL verification for TDM requests only
+        ssl_verify = not is_tdm  # False for TDM, True for others
 
         while True:
             try:
                 logger.info(f"Making request to: {url} with params: {params}")
-                response = requests.get(url, params=params, timeout=10)
+                response = requests.get(url, params=params, timeout=10, verify=ssl_verify)
                 
                 if response.status_code == 429:
                     if retries >= self.max_retries:
@@ -44,8 +51,12 @@ class SpringerNatureAPI:
                     continue  # Retry request after delay
                 
                 response.raise_for_status()
-                data = response.json()
-                logger.debug(f"Response received: {data}")
+
+                if is_tdm:
+                    return response.text
+                else:
+                    data = response.json()
+                    logger.debug(f"Response received: {data}")
 
                 all_results.extend(data.get("records", []))
                 
