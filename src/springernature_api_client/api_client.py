@@ -6,9 +6,6 @@ from .config import API_KEY
 from .exceptions import APIRequestError, RateLimitExceededError, InvalidAPIKeyError
 from .logging_config import logger
 
-# Disable SSL warnings for TDM requests
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 class SpringerNatureAPI:
     BASE_URL = "https://api.springernature.com/"
     TDM_BASE_URL = "https://spdi.public.springernature.app/"
@@ -33,6 +30,10 @@ class SpringerNatureAPI:
         
         # Disable SSL verification for TDM requests only
         ssl_verify = not is_tdm  # False for TDM, True for others
+        
+        # Disable SSL warnings only for TDM requests to avoid masking issues in other API calls
+        if is_tdm:
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         while True:
             try:

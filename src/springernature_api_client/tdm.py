@@ -19,7 +19,7 @@ class TDMAPI(SpringerNatureAPI):
         print(f"Fetching TDM: query='{q}', page={p}, start={s}")
         
         # Get raw XML response from TDM API
-        response = self._make_request("xmldata/jats", q=q, p=p, s=s, is_tdm=True)
+        response = self._make_request("xmldata/jats", q=q, p=p, s=s, fetch_all=fetch_all, is_premium=is_premium, is_tdm=True)
         
         if not isinstance(response, str):
             raise TypeError(f"Expected XML string, got {type(response)}")
@@ -37,6 +37,12 @@ class TDMAPI(SpringerNatureAPI):
         Returns: File path where XML was saved
         """
         try:
+            # Auto-generate filename if not provided
+            if filename is None:
+                from datetime import datetime
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                filename = f"output_tdm_{timestamp}.xml"
+            
             # Try to pretty print / format the XML
             try:
                 parsed_xml = minidom.parseString(xml_content)
@@ -45,7 +51,6 @@ class TDMAPI(SpringerNatureAPI):
                 print(f"⚠️ Could not format XML (saving raw instead): {parse_err}")
                 pretty_xml = xml_content
             
-            os.makedirs("exports", exist_ok=True)
             file_path = os.path.join(os.getcwd(), filename)
             
             with open(file_path, "w", encoding="utf-8") as f:
