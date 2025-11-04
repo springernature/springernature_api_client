@@ -28,9 +28,6 @@ class SpringerNatureAPI:
 
         retries = 0  # Track retry attempts
         
-        # Disable SSL verification for TDM requests only
-        ssl_verify = not is_tdm  # False for TDM, True for others
-        
         # Disable SSL warnings only for TDM requests to avoid masking issues in other API calls
         if is_tdm:
             urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -38,7 +35,7 @@ class SpringerNatureAPI:
         while True:
             try:
                 logger.info(f"Making request to: {url} with params: {params}")
-                response = requests.get(url, params=params, timeout=10, verify=ssl_verify)
+                response = requests.get(url, params=params, timeout=10)
                 
                 if response.status_code == 429:
                     if retries >= self.max_retries:
