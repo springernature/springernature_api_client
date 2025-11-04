@@ -28,9 +28,7 @@ class SpringerNatureAPI:
 
         retries = 0  # Track retry attempts
         
-        # Disable SSL warnings only for TDM requests to avoid masking issues in other API calls
-        if is_tdm:
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         while True:
             try:
@@ -55,16 +53,15 @@ class SpringerNatureAPI:
                 else:
                     data = response.json()
                     logger.debug(f"Response received: {data}")
-
-                all_results.extend(data.get("records", []))
-                
-                # If pagination is enabled and nextPage exists, continue fetching
-                if fetch_all and "nextPage" in data:
-                    url = f"{base_url}{data['nextPage']}"
-                    params = {}
-                    logger.info(f"Next page found, new URL: {url}")
-                else:
-                    break  # Exit loop if no pagination
+                    all_results.extend(data.get("records", []))
+                    
+                    # If pagination is enabled and nextPage exists, continue fetching
+                    if fetch_all and "nextPage" in data:
+                        url = f"{base_url}{data['nextPage']}"
+                        params = {}
+                        logger.info(f"Next page found, new URL: {url}")
+                    else:
+                        break  # Exit loop if no pagination
 
             except requests.exceptions.Timeout:
                 if retries >= self.max_retries:
@@ -81,4 +78,7 @@ class SpringerNatureAPI:
                 logger.error(f"API Error: {e}")
                 raise APIRequestError(str(e)) from e
         
-        return {"records": all_results}
+        if is_tdm:
+            raise APIRequestError("TDM request reached unexpected code path")
+        else:
+            return {"records": all_results}
