@@ -153,7 +153,7 @@ By default, results_to_dataframe() saves the results as an Excel file:
 df = results_to_dataframe(response, export_to_excel=True, filename="output.xlsx")
 ```
 
-## � Saving XML Content (TDM API)
+## 💾 Saving XML Content (TDM API)
 
 The TDM API save_xml() method formats and saves XML responses:
 
