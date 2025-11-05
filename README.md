@@ -72,7 +72,7 @@ api_key = "your_api_key_here"
 
 Fetch Metadata and Export to Excel
 
-```bash
+```python
 import springernature_api_client.metadata as metadata
 from springernature_api_client.utils import results_to_dataframe
 
@@ -92,7 +92,7 @@ print(df.head())  # Display first few rows
 
 ### 1️⃣ Meta API
 
-```bash
+```python
 import springernature_api_client.meta as meta
 from springernature_api_client.utils import results_to_dataframe
 
@@ -104,7 +104,7 @@ print(df.head())
 
 ### 2️⃣ Metadata API
 
-```bash
+```python
 import springernature_api_client.metadata as metadata
 from springernature_api_client.utils import results_to_dataframe
 
@@ -116,7 +116,7 @@ print(df.head())
 
 ### 3️⃣ Open Access API
 
-```bash
+```python
 import springernature_api_client.openaccess as openaccess
 from springernature_api_client.utils import results_to_dataframe
 
@@ -128,21 +128,20 @@ print(df.head())
 
 ### 4️⃣ TDM (Text & Data Mining) API
 
-```bash
+```python
 import springernature_api_client.tdm as tdm
-from springernature_api_client.utils import results_to_dataframe
 
-tdm_client = tdm.TDMAPI(api_key="your_api_key/your_api_metric")
+tdm_client = tdm.TDMAPI(api_key="your_api_key/your_metric")
 response = tdm_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
-df = results_to_dataframe(response, export_to_excel=True)
-print(df.head())
+file_path = tdm_client.save_xml(response, "output_tdm.xml")
+print(f"✅ XML saved successfully to {file_path}")
 ```
 
 ### 🔄 Pagination Handling (fetch_all=True)
 
 If fetch_all=True, the API will automatically paginate through results.
 
-```bash
+```python
 response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=False, is_premium=False)
 ```
 
@@ -150,8 +149,16 @@ response = metadata_client.search(q='keyword:"cancer"', p=20, s=1, fetch_all=Fal
 
 By default, results_to_dataframe() saves the results as an Excel file:
 
-```bash
+```python
 df = results_to_dataframe(response, export_to_excel=True, filename="output.xlsx")
+```
+
+## 💾 Saving XML Content (TDM API)
+
+The TDM API save_xml() method formats and saves XML responses:
+
+```python
+file_path = tdm_client.save_xml(xml_response, "output_tdm.xml")
 ```
 
 ## 🛠 Troubleshooting

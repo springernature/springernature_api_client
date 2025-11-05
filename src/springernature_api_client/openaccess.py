@@ -15,7 +15,7 @@ class OpenAccessAPI(SpringerNatureAPI):
         """
         all_results = []
 
-        while s <= 500 if is_premium else 100:
+        while s <= (500 if is_premium else 100):
             print(f"Fetching openaccess: query='{q}', page={p}, start={s}")
             
             response = self._make_request("openaccess/json", q=q, p=p, s=s)

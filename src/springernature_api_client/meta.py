@@ -15,7 +15,7 @@ class MetaAPI(SpringerNatureAPI):
         """
         all_results = []
 
-        while s <= 500 if is_premium else 100:
+        while s <= (500 if is_premium else 100):
             print(f"Fetching meta: query='{q}', page={p}, start={s}")
             
             response = self._make_request("meta/v2/json", q=q, p=p, s=s)

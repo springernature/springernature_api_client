@@ -44,18 +44,21 @@ class SpringerNatureAPI:
                     continue  # Retry request after delay
                 
                 response.raise_for_status()
-                data = response.json()
-                logger.debug(f"Response received: {data}")
 
-                all_results.extend(data.get("records", []))
-                
-                # If pagination is enabled and nextPage exists, continue fetching
-                if fetch_all and "nextPage" in data:
-                    url = f"{base_url}{data['nextPage']}"
-                    params = {}
-                    logger.info(f"Next page found, new URL: {url}")
+                if is_tdm:
+                    return response.text
                 else:
-                    break  # Exit loop if no pagination
+                    data = response.json()
+                    logger.debug(f"Response received: {data}")
+                    all_results.extend(data.get("records", []))
+                    
+                    # If pagination is enabled and nextPage exists, continue fetching
+                    if fetch_all and "nextPage" in data:
+                        url = f"{base_url}{data['nextPage']}"
+                        params = {}
+                        logger.info(f"Next page found, new URL: {url}")
+                    else:
+                        break  # Exit loop if no pagination
 
             except requests.exceptions.Timeout:
                 if retries >= self.max_retries:
