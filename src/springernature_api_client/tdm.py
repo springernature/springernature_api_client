@@ -61,7 +61,7 @@ class TDMAPI(SpringerNatureAPI):
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 filename = f"output_tdm_{timestamp}.xml"
 
-            # 1️⃣ Separate header (xml declaration, stylesheet, doctype)
+            # 1. Separate header (xml declaration, stylesheet, doctype)
             header_pattern = re.compile(
                 r'^(<\?xml[^>]*\?>\s*)?(<\?xml-stylesheet[^>]*\?>\s*)?(<!DOCTYPE[\s\S]*?\]>\s*)?',
                 re.MULTILINE
@@ -69,15 +69,15 @@ class TDMAPI(SpringerNatureAPI):
             header_match = header_pattern.match(xml_content)
             header = header_match.group(0).strip() if header_match else ""
 
-            # 2️⃣ Remove redundant headers from the rest of the content
+            # 2. Remove redundant headers from the rest of the content
             body = header_pattern.sub("", xml_content).strip()
 
-            # 3️⃣ Use regex to count only actual <response> tags (not <responseType>, <responses>, etc.)
+            # 3. Use regex to count only actual <response> tags (not <responseType>, <responses>, etc.)
             response_tag_count = len(re.findall(r'<response(\s|>)', body))
             if response_tag_count > 1:
                 body = f"<tdm_responses>\n{body}\n</tdm_responses>"
 
-            # 4️⃣ Pretty print safely
+            # 4. Pretty print safely
             try:
                 parsed_xml = minidom.parseString(body)
                 pretty_body = parsed_xml.toprettyxml(indent="  ", encoding=None).split('\n', 1)[1]
@@ -92,13 +92,13 @@ class TDMAPI(SpringerNatureAPI):
                 pretty_body = pretty_body[xml_decl_match.end():]
             pretty_body = re.sub(r'\n\s*\n', '\n', pretty_body)
 
-            # 5️⃣ Combine header + formatted body, ensure newline after header
+            # 5. Combine header + formatted body, ensure newline after header
             if header:
                 pretty_xml = f"{header}\n{pretty_body.lstrip()}"
             else:
                 pretty_xml = pretty_body
 
-            # 6️⃣ Save to file
+            # 6. Save to file
             file_path = os.path.join(os.getcwd(), filename)
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(pretty_xml)
