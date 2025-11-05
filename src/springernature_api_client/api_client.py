@@ -1,7 +1,6 @@
 import requests
 import time
 import random
-import urllib3
 from .config import API_KEY
 from .exceptions import APIRequestError, RateLimitExceededError, InvalidAPIKeyError
 from .logging_config import logger
@@ -27,9 +26,6 @@ class SpringerNatureAPI:
         all_results = []
 
         retries = 0  # Track retry attempts
-        
-        if is_tdm:
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         while True:
             try:
