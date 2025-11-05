@@ -2,6 +2,7 @@ from .api_client import SpringerNatureAPI
 import os
 from xml.dom import minidom
 import re
+from datetime import datetime
 
 class TDMAPI(SpringerNatureAPI):
     def search(self, q: str, p: int = 10, s: int = 1, fetch_all: bool = False, is_premium: bool = False):
@@ -57,7 +58,6 @@ class TDMAPI(SpringerNatureAPI):
         try:
             # Auto-generate filename if not provided
             if filename is None:
-                from datetime import datetime
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 filename = f"output_tdm_{timestamp}.xml"
 
@@ -72,22 +72,31 @@ class TDMAPI(SpringerNatureAPI):
             # 2️⃣ Remove redundant headers from the rest of the content
             body = header_pattern.sub("", xml_content).strip()
 
-            # 3️⃣ If multiple <response> blocks exist, wrap them in a single root
-            if body.count("<response") > 1:
+            # 3️⃣ Use regex to count only actual <response> tags (not <responseType>, <responses>, etc.)
+            response_tag_count = len(re.findall(r'<response(\s|>)', body))
+            if response_tag_count > 1:
                 body = f"<tdm_responses>\n{body}\n</tdm_responses>"
 
             # 4️⃣ Pretty print safely
             try:
                 parsed_xml = minidom.parseString(body)
-                pretty_body = parsed_xml.toprettyxml(indent="  ")
+                pretty_body = parsed_xml.toprettyxml(indent="  ", encoding=None).split('\n', 1)[1]
             except Exception as parse_err:
                 print(f"⚠️ Could not format XML cleanly (saving raw): {parse_err}")
                 pretty_body = body
 
+            # Remove XML declaration from pretty_body if present
+            xml_decl_pattern = re.compile(r'^<\?xml[^>]*\?>\s*', re.MULTILINE)
+            xml_decl_match = xml_decl_pattern.match(pretty_body)
+            if xml_decl_match:
+                pretty_body = pretty_body[xml_decl_match.end():]
             pretty_body = re.sub(r'\n\s*\n', '\n', pretty_body)
 
-            # 5️⃣ Combine header + formatted body
-            pretty_xml = f"{header}\n{pretty_body}" if header else pretty_body
+            # 5️⃣ Combine header + formatted body, ensure newline after header
+            if header:
+                pretty_xml = f"{header}\n{pretty_body.lstrip()}"
+            else:
+                pretty_xml = pretty_body
 
             # 6️⃣ Save to file
             file_path = os.path.join(os.getcwd(), filename)

@@ -28,7 +28,8 @@ class SpringerNatureAPI:
 
         retries = 0  # Track retry attempts
         
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        if is_tdm:
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         while True:
             try:
@@ -78,7 +79,4 @@ class SpringerNatureAPI:
                 logger.error(f"API Error: {e}")
                 raise APIRequestError(str(e)) from e
         
-        if is_tdm:
-            raise APIRequestError("TDM request reached unexpected code path")
-        else:
-            return {"records": all_results}
+        return {"records": all_results}
