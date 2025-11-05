@@ -161,7 +161,7 @@ The TDM API save_xml() method formats and saves XML responses:
 file_path = tdm_client.save_xml(xml_response, "output_tdm.xml")
 ```
 
-## �🛠 Troubleshooting
+## 🛠 Troubleshooting
 
 ### 1️⃣ Invalid API Key
 
