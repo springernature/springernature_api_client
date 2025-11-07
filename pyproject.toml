@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "springernature_api_client"
-version = "0.0.8"
+version = "0.0.9"
 license = "MIT"
 description = "Springer Nature API Client"
 authors = ["Springer Nature <supportapi@springernature.com>"]
