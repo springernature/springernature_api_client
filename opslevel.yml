@@ -1,0 +1,16 @@
+version: 1
+component:
+  name: springernature_api_client
+  owner: data-solutions
+  description: Python package to interact with the Springer Nature API for metadata, open access articles, and TDM content.
+  type: application_module
+  lifecycle: emerging
+  tier: Customer-Facing
+  language: python
+  system: APPL-442
+  tools:
+    - category: issue_tracking
+      name: GitHub
+      url: https://github.com/springernature/springernature_api_client/issues
+  properties:
+    static_module: true
