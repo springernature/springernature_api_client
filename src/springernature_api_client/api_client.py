@@ -7,7 +7,6 @@ from .logging_config import logger
 
 class SpringerNatureAPI:
     BASE_URL = "https://api.springernature.com/"
-    TDM_BASE_URL = "https://spdi.public.springernature.app/"
 
     def __init__(self, api_key=None, max_retries=5, backoff_factor=1):
         """Initialize API with user-provided API key (or use default from config)"""
@@ -21,7 +20,7 @@ class SpringerNatureAPI:
     def _make_request(self, endpoint: str, fetch_all: bool = False, is_tdm: bool = False, **params):
         """Handles API requests with proper retry logic and pagination"""
         params["api_key"] = self.api_key
-        base_url = self.TDM_BASE_URL if is_tdm else self.BASE_URL
+        base_url = self.BASE_URL
         url = f"{base_url}{endpoint}"
         all_results = []
 

@@ -4,10 +4,10 @@
 
 We provide security updates for the following versions of the Springer Nature API Client:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.0.9   | :white_check_mark: |
-| < 0.0.9 | :x:                |
+| Version  | Supported          |
+|----------| ------------------ |
+| 0.0.10   | :white_check_mark: |
+| < 0.0.10 | :x:                |
 
 ## Reporting a Vulnerability
 
